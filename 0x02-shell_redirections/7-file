@@ -1,2 +1,6 @@
 #!/bin/bash
+<<<<<<< HEAD
 echo "Best School" > '\*\\'"Best School"\'\\*$\?\*\*\*\*\*:)'
+=======
+printf "Best School\n" > '\*\\'"Best School"\'\\*$\?\*\*\*\*\*:)'
+>>>>>>> 89f54cdc5c60cee976b4fb120da0becfed612bd6
