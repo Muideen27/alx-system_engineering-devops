@@ -17,7 +17,7 @@ Project will start Feb 6, 2023 5:00 AM, must end by Feb 20, 2023 5:00 AM
 ----
 ### Background Context
 
-#### CMD CHALLENGE is a pretty cool game challenging you on Bash skills. Everything is done via the command line and the questions are becoming increasingly complicated. It’s a good training to improve your command line skills!
+#### [CMD CHALLENGE](https://cmdchallenge.com/) is a pretty cool game challenging you on Bash skills. Everything is done via the command line and the questions are becoming increasingly complicated. It’s a good training to improve your command line skills!
 ----
 
 ----
