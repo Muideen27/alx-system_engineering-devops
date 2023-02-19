@@ -32,7 +32,6 @@ Project will start Feb 6, 2023 5:00 AM, must end by Feb 20, 2023 5:00 AM
 #### As each task is completed, the name of that task will turn green
 #### Create a screenshot, showing that you completed the required levels
 #### Push this screenshot with the right name to GitHub, in either the PNG or JPEG format
->>>>>>> b88709608645f63fac8ce334354b4bcefe9564d6
 ----
 
 ## Tasks
