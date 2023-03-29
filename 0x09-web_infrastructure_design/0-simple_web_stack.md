@@ -1,8 +1,6 @@
 # Simple Web Stack
 
-![image of simple web stack](0-simple_web_stack.jgp)
-
-[visit whiteboard](https://miro.com/app/board/uXjVMZ87VtM=/?share_link_id=714258747445)
+[click](https://miro.com/app/board/uXjVMZ87VtM=/?share_link_id=714258747445) here to visit the [whiteboard](https://miro.com/app/board/uXjVMZ87VtM=/?share_link_id=714258747445) page
 
 ## Description
 
