@@ -1,6 +1,6 @@
 # Secured and Monitored Web Infrastructure
 
-click [here](https://miro.com/app/board/uXjVMZBZwZs=/?share_link_id=598126190267) to visit the [whiteboard](https://miro.com/app/board/uXjVMZBZwZs=/?share_link_id=598126190267)page
+click [here](https://miro.com/app/board/uXjVMZBZwZs=/?share_link_id=598126190267) to visit the [whiteboard](https://miro.com/app/board/uXjVMZBZwZs=/?share_link_id=598126190267) page
 
 ## Description
 

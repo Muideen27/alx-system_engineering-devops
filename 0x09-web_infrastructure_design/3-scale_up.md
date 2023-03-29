@@ -1,6 +1,6 @@
 # Scaled Up Web Infrastructure
 
-click [here](https://miro.com/app/board/uXjVOfMRh90=/) ti visit the [whiteboard](https://miro.com/app/board/uXjVOfMRh90=/) page
+click [here](https://miro.com/app/board/uXjVOfMRh90=/) to visit the [whiteboard](https://miro.com/app/board/uXjVOfMRh90=/) page
 
 # Description
 
