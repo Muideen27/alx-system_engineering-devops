@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# Install nginx if it's not already installed
+if [ ! -x "$(command -v nginx)" ]; then
+  apt-get update
+  apt-get install -y nginx
+fi
+
+# creating html file
+mkdir -p /etc/nginx/html
+touch /etc/nginx/html/index.html
+
+echo "Hello World!" > /etc/nginx/html/index.html
+
+# Creating Nginx server block for redirection
+echo "
+server {
+    listen 80;
+    listen [::]:80;
+    root /etc/nginx/html;
+    index index.html;
+
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4
+    }
+}
+" > /etc/nginx/sites-available/default
+
+# Enable the new server block
+ln -s /etc/nginx/sites-available/redirect /etc/nginx/sites-enabled/
+
+# Testing Nginx for configuration
+nginx -t
+
+# Restarting Nginx to apply the changes
+systemctl restart nginx
