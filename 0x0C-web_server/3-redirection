@@ -1,33 +1,18 @@
-#!/usr/bin/env bash
+# !/usr/bin/env bash
+# Configure a new Nginx server 
+# so that /redirect_me is redirecting to another page
 
-# Install nginx if it's not already installed
-if [ ! -x "$(command -v nginx)" ]; then
-  apt-get update
-  apt-get install -y nginx
-fi
+# install nginx if not already installed
+sudo apt-get -y update
+sudo apt-get -y install nginx
 
-# creating html file
-mkdir -p /etc/nginx/html
-touch /etc/nginx/html/index.html
+# Allow HTTP traffic through the system's firewall for Nginx.
+sudo ufw allow 'Nginx HTTP'
 
-echo "Hello World!" > /etc/nginx/html/index.html
+# creates an HTML file with the content "Hello World" 
+# in the default Nginx document root directory.
+echo "Hello World" | sudo tee /var/www/html/index
+sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/ permanent;' /etc/nginx/sites-available/default
 
-# Creating Nginx server block for redirection
-echo " server {
-	listen 80;
-	listen [::]:80;
-	root /etc/nginx/html;
-	index index.html;
-	location /redirect_me {
-		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4
-    }
-} " > /etc/nginx/sites-available/redirect.conf
-
-# Enable the new server block
-# ln -s /etc/nginx/sites-available/redirect.conf /etc/nginx/sites-enabled/
-
-# Testing Nginx for configuration
-nginx -t
-
-# Restarting Nginx to apply the changes
-sudo system restart nginx
+# Restart machine
+sudo service nginx restart
