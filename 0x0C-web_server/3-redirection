@@ -24,10 +24,10 @@ server {
         return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4
     }
 }
-" > /etc/nginx/sites-available/default
+" > /etc/nginx/sites-available/redirect.conf
 
 # Enable the new server block
-ln -s /etc/nginx/sites-available/redirect /etc/nginx/sites-enabled/
+ln -s /etc/nginx/sites-available/redirect.conf /etc/nginx/sites-enabled/
 
 # Testing Nginx for configuration
 nginx -t
