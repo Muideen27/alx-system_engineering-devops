@@ -6,7 +6,7 @@ apt-get update -y
 apt-get install -y haproxy
 
 #enable managing haproxy via an init script
-sed -i "s/ENABLED=0/ENABLED=1" /etc/default/haproxy
+sed -i "s/ENABLED=0/ENABLED=1/" /etc/default/haproxy
 
 #backup haproxy config file
 cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
