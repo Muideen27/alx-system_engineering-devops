@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# install and configure HAproxy
+
+#update and install haproxy
+apt-get update -y
+apt-get install -y haproxy
+
+#enable managing haproxy via an init script
+sed -i "s/ENABLED=0/ENABLED=1" /etc/default/haproxy
+
+#backup haproxy config file
+cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
+
+MY_ID=180084
+
+#configuration the two servers using roundrobins algorithm
+echo "
+listen $MY_ID-lb-01
+    bind *:80
+    balance roundrobin
+    server $MY_ID-web-01 3.90.81.59 check
+    server $MY_ID-web-02 54.164.11.200 check
+" >> /etc/haproxy/haproxy.cfg
+
+# restart haproxy
+service haproxy restart
