@@ -7,8 +7,11 @@ global
         user haproxy
         group haproxy
         daemon
+<<<<<<< HEAD
         maxconn 2048
         tune.ssl.default-dh-param 2048
+=======
+>>>>>>> 950ce0994e64f506d9a95c1188b56b399f459f6d
 
         # Default SSL material locations
         ca-base /etc/ssl/certs
@@ -34,6 +37,7 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
+<<<<<<< HEAD
         option forwardfor
         option http-server-close
 
@@ -45,11 +49,18 @@ frontend www-http
 frontend www-https
     bind *:443 ssl crt /etc/haproxy/certs/www.muid.tech.pem
     http-request add-header X-Forwarded-Proto http
+=======
+
+frontend www-https
+    bind *:443 ssl crt /etc/letsencrypt/live/www.muid.tech/fullchain.pem
+    http-request add-header X-Forwarded-Proto https if { ssl_fc }
+>>>>>>> 950ce0994e64f506d9a95c1188b56b399f459f6d
     acl is_root path -i /
     http-response set-header X-Holberton-School "Holberton School"
     use_backend www-backend if is_root
     default_backend web-backend
 
+<<<<<<< HEAD
 backend www-backend
     redirect scheme https if !{ ssl_fc }
     balance roundrobin
@@ -64,3 +75,10 @@ backend web-backend
 backend letsencrypt-backend
     server letsencrypt 127.0.0.1:54321
 
+=======
+backend web-backend
+    mode http
+    balance roundrobin
+    server 1026-web-01 3.90.81.59:80 check
+    server 1026-web-02 54.164.11.200:80 check
+>>>>>>> 950ce0994e64f506d9a95c1188b56b399f459f6d
