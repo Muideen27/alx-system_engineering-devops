@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# nginx as nginx non-root user
+pkill -f apache2
+sudo service nginx stop
+sudo apt-get purge -y nginx
+sudo apt-get install -y nginx
+
+chown nginx:nginx /etc/nginx/nginx.conf
+chmod 700 /etc/nginx/nginx.conf
+
+# Change nginx user to nginx in nginx.conf
+sudo sed -i 's/user www-data;/user nginx;/' /etc/nginx/nginx.conf
+
+# Change listen directive to port 8080 in the default server block
+sudo sed -i 's/listen 80 default_server;/listen 8080 default_server;/' /etc/nginx/sites-available/default
+sudo sed -i 's/listen [::]:80 default_server;/listen [::]:8080 default_server;/' /etc/nginx/sites-available/default
+
+# Test nginx configuration and restart the service
+sudo nginx -t
+sudo systemctl restart nginx
