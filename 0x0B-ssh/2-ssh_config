@@ -1,0 +1,6 @@
+# ssh config file
+# connecting to a server without pasword i.e disable passwd SSH will authenticate 
+# using a private key
+Host 100.25.33.64
+	IdentityFile ~/.ssh/school
+	PasswordAuthentication no
