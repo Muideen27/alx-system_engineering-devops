@@ -26,7 +26,7 @@ def todofunc():
 
     print("Employee {} is done with tasks({}/{}):".format(name, count, size))
     for i in range(0, count):
-print("\t {}".format(titles[i]))
+		print("\t {}".format(titles[i]))
 
 
 if __name__ == "__main__":
