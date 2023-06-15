@@ -1,0 +1,11 @@
+server {
+        listen 80;
+        server_name 3.90.81.59 www.muid.tech;
+
+        location /airbnb-onepage/ {
+                include proxy_params;
+                proxy_pass http://localhost:5000;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+        }
+}
