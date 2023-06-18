@@ -1,16 +1,6 @@
-# puppet script
+fix our stack so that there is not failed requests
 
-if file_exists('/etc/default/nginx') {
-  file { '/etc/default/nginx':
-    ensure  => present,
-    content => template('your_module/nginx_default.erb'),
-    notify  => Service['nginx'],
-  }
+exec { 'change nginx limit':
+	command  => 'sudo sed -i "s/15/4096/g" /etc/default/nginx; sudo service nginx restart',
+        provider => shell,
 }
-
-service { 'nginx':
-  ensure  => running,
-  enable  => true,
-  require => File['/etc/default/nginx'],
-}
-
